@@ -11,25 +11,26 @@
     <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         
-        /* CSS Trick to toggle mobile menu without adding JS */
+        /* The CSS selector to open the menu on tap */
         #menu-toggle:checked ~ #mobile-menu {
-            max-height: 300px;
+            max-height: 400px;
             opacity: 1;
             padding-bottom: 1.5rem;
+            margin-top: 1rem;
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
 
     <nav class="sticky top-0 z-50 bg-slate-900 text-white backdrop-blur-md bg-opacity-95 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Main Navbar Row -->
-            <div class="h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 py-4 md:py-0">
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            
+            <div class="h-12 md:h-20 flex items-center justify-between">
                 <div class="flex items-center space-x-2">
                     <span class="text-2xl font-bold tracking-wider text-cyan-400">Tekaniyat<span class="text-cyan-400"></span></span>
                 </div>
                 
-                <!-- Desktop Links (Hidden on Mobile) -->
                 <div class="hidden md:flex space-x-8 font-medium text-sm text-slate-300">
                     <a href="#about" class="hover:text-cyan-400 transition">About Us</a>
                     <a href="#partners" class="hover:text-cyan-400 transition">Partners</a>
@@ -37,27 +38,23 @@
                     <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
                 </div>
                 
-                <!-- Desktop CTA Button (Hidden on Mobile) -->
                 <div class="hidden md:block">
                     <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-5 py-2.5 rounded-lg text-sm transition">Quote Request</a>
                 </div>
 
-                <!-- Mobile Hamburger Button Trigger -->
-                <input type="checkbox" id="menu-toggle" class="hidden">
-                <label id="hamburger-btn" for="menu-toggle" class="p-2 md:hidden cursor-pointer text-slate-300 hover:text-cyan-400 select-none">
+                <label id="hamburger-btn" for="menu-toggle" class="p-2 md:hidden cursor-pointer text-slate-300 hover:text-cyan-400 select-none block">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </label>
             </div>
 
-            <!-- Mobile Dropdown Menu Container (Smooth CSS slide out) -->
-            <div id="mobile-menu" class="md:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col space-y-4 font-medium text-slate-300 border-t border-slate-800/50 pt-0">
-                <a href="#about" onclick="document.getElementById('menu-toggle').checked = false;" class="hover:text-cyan-400 transition text-sm py-1">About Us</a>
+            <div id="mobile-menu" class="md:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col space-y-4 font-medium text-slate-300 border-t border-slate-800/50">
+                <a href="#about" onclick="document.getElementById('menu-toggle').checked = false;" class="hover:text-cyan-400 transition text-sm pt-4">About Us</a>
                 <a href="#partners" onclick="document.getElementById('menu-toggle').checked = false;" class="hover:text-cyan-400 transition text-sm py-1">Partners</a>
                 <a href="#services" onclick="document.getElementById('menu-toggle').checked = false;" class="hover:text-cyan-400 transition text-sm py-1">Services</a>
                 <a href="#contact" onclick="document.getElementById('menu-toggle').checked = false;" class="hover:text-cyan-400 transition text-sm py-1">Contact</a>
-                <a href="#contact" onclick="document.getElementById('menu-toggle').checked = false;" class="bg-cyan-500 text-slate-950 text-center font-semibold py-2 rounded-lg text-sm transition block">Quote Request</a>
+                <a href="#contact" onclick="document.getElementById('menu-toggle').checked = false;" class="bg-cyan-500 text-slate-950 text-center font-semibold py-2.5 rounded-lg text-sm transition block">Quote Request</a>
             </div>
         </div>
     </nav>
@@ -153,35 +150,30 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 01: IT Products -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">01</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-3">IT Products</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Comprehensive import, export, and wholesale trading centered in Dubai’s premier free zone hub. Supplying computers, printers, network architecture, storage hardware, and mobile accessories from leading global brands including Apple, HP, Dell, Samsung, Canon, Verbatim, and WD.</p>
                 </div>
 
-                <!-- 02: Office Supplies -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">02</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-3">Office Supplies</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Streamlining corporate procurement with essential workplace consumables that match strict internal standards. Delivered alongside our core IT infrastructure, we provide an integrated, dependable "one-stop-shop" procurement experience for modern offices.</p>
                 </div>
 
-                <!-- 03: Smart Home Appliances -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">03</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-3">Smart Home Appliances</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Capitalizing on the global rise of automated residential environments through strategic investments in IoT ecosystems. We source and distribute next-generation smart appliances designed to optimize automated residential layouts and elevate automated living standards.</p>
                 </div>
 
-                <!-- 04: IT Solutions & Digitalization -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">04</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-3">IT Solutions & Digitalization</h4>
                     <p class="text-slate-600 text-sm leading-relaxed">Architecting enterprise-grade digital transformations that successfully align corporate operational targets with technical assets. We implement intelligent systems integration, cloud migrations, and robust security protocols to elevate data integrity and workflow performance.</p>
                 </div>
 
-                <!-- 05: Sustainability Solutions -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">05</div>
                     <h4 class="text-xl font-bold text-slate-900 mb-3">Sustainability Solutions</h4>
