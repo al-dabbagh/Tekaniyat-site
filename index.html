@@ -10,23 +10,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        /* CSS Trick to toggle mobile menu without adding JS */
+        #menu-toggle:checked ~ #mobile-menu {
+            max-height: 300px;
+            opacity: 1;
+            padding-bottom: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
 
     <nav class="sticky top-0 z-50 bg-slate-900 text-white backdrop-blur-md bg-opacity-95 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <span class="text-2xl font-bold tracking-wider text-cyan-400">Tekaniyat<span class="text-cyan-400"></span></span>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Main Navbar Row -->
+            <div class="h-20 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <span class="text-2xl font-bold tracking-wider text-cyan-400">Tekaniyat<span class="text-cyan-400"></span></span>
+                </div>
+                
+                <!-- Desktop Links (Hidden on Mobile) -->
+                <div class="hidden md:flex space-x-8 font-medium text-sm text-slate-300">
+                    <a href="#about" class="hover:text-cyan-400 transition">About Us</a>
+                    <a href="#partners" class="hover:text-cyan-400 transition">Partners</a>
+                    <a href="#services" class="hover:text-cyan-400 transition">Services</a>
+                    <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+                </div>
+                
+                <!-- Desktop CTA Button (Hidden on Mobile) -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-5 py-2.5 rounded-lg text-sm transition">Quote Request</a>
+                </div>
+
+                <!-- Mobile Hamburger Button Trigger -->
+                <input type="checkbox" id="menu-toggle" class="hidden">
+                <label id="hamburger-btn" for="menu-toggle" class="p-2 md:hidden cursor-pointer text-slate-300 hover:text-cyan-400 select-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </label>
             </div>
-            <div class="hidden md:flex space-x-8 font-medium text-sm text-slate-300">
-                <a href="#about" class="hover:text-cyan-400 transition">About Us</a>
-                <a href="#partners" class="hover:text-cyan-400 transition">Partners</a>
-                <a href="#services" class="hover:text-cyan-400 transition">Services</a>
-                <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
-            </div>
-            <div class="hidden md:block">
-                <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-semibold px-5 py-2.5 rounded-lg text-sm transition">Quote Request</a>
+
+            <!-- Mobile Dropdown Menu Container (Smooth CSS slide out) -->
+            <div id="mobile-menu" class="md:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col space-y-4 font-medium text-slate-300 border-t border-slate-800/50 pt-0">
+                <a href="#about" onclick="document.getElementById('menu-toggle').checked = false;" class="hover:text-cyan-400 transition text-sm py-1">About Us</a>
+                <a href="#partners" onclick="document.getElementById('menu-toggle').checked = false;" class="hover:text-cyan-400 transition text-sm py-1">Partners</a>
+                <a href="#services" onclick="document.getElementById('menu-toggle').checked = false;" class="hover:text-cyan-400 transition text-sm py-1">Services</a>
+                <a href="#contact" onclick="document.getElementById('menu-toggle').checked = false;" class="hover:text-cyan-400 transition text-sm py-1">Contact</a>
+                <a href="#contact" onclick="document.getElementById('menu-toggle').checked = false;" class="bg-cyan-500 text-slate-950 text-center font-semibold py-2 rounded-lg text-sm transition block">Quote Request</a>
             </div>
         </div>
     </nav>
@@ -35,12 +66,12 @@
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(6,182,212,0.15),transparent_45%)]"></div>
         <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10">
             <div class="lg:col-span-7 space-y-6">
-                <span class="bg-slate-800 text-cyan-400 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider border border-slate-700">Established 2004</span>
+                <span class="bg-slate-800 text-cyan-400 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider border border-slate-700">Est. 2004</span>
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                     Empowering the Region with <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">Next-Gen Tech</span> Solutions
                 </h1>
                 <p class="text-lg text-slate-300 max-w-2xl leading-relaxed">
-                    More than two decades of regional expertise have established TeKaNiYaT com FZCO as an essential systems integrator, technology trader, and digital transformation provider across the UAE, GCC, and Iraq.
+                    More than two decades of regional expertise have established Tekaniyat com FZCO as an essential systems integrator, technology trader, and digital transformation provider across the UAE and Iraq.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-2">
                     <a href="#services" class="bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold px-6 py-3.5 rounded-lg shadow-lg shadow-cyan-500/20 transition text-center w-full sm:w-auto">Explore Solutions</a>
@@ -70,10 +101,10 @@
                 <h2 class="text-xs font-bold tracking-widest text-cyan-600 uppercase">Who We Are</h2>
                 <h3 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Built on Commitment, Driven by Innovation</h3>
                 <p class="text-slate-600 leading-relaxed">
-                    Founded in 2004 in the UAE as "Vision", our mission was clear: deliver world-class IT training and modern infrastructure. Building upon deep market alignment, we reestablished in 2010 within the <strong>Dubai Silicon Oasis Free Zone</strong>—the regional capital for technology and electronics ecosystems.
+                    TeKaNiYaT com FZCO is a premier technology solutions provider, systems integrator, and trader with more than twenty years of regional expertise. Our robust distribution channels span major cities across the UAE and Iraq, creating a powerful synergy that ensures market leadership.
                 </p>
                 <p class="text-slate-600 leading-relaxed">
-                    Today, TeKaNiYaT represents competence and continuous synergy. We hold widespread reseller and distribution channels throughout major trading centers in the GCC and Iraq, bringing technology to businesses and consumers at decent, sustainable prices.
+                    Founded on the vision of bringing diverse technology needs under one umbrella, we strive to enhance our clients operations and daily lives. We remain dedicated to operational excellence, offering dependable products and top-tier service at competitive prices.
                 </p>
             </div>
             <div class="grid grid-cols-2 gap-4">
@@ -82,15 +113,15 @@
                     <p class="text-xs text-slate-500 uppercase tracking-wide">Year Founded</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-slate-200/80 shadow-sm">
-                    <div class="text-3xl font-bold text-cyan-600 mb-1">DSO</div>
-                    <p class="text-xs text-slate-500 uppercase tracking-wide">Premium HQ Location</p>
+                    <div class="text-3xl font-bold text-cyan-600 mb-1">Dubai Silicon Oasis</div>
+                    <p class="text-xs text-slate-500 uppercase tracking-wide">HQ Location</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-slate-200/80 shadow-sm">
                     <div class="text-3xl font-bold text-slate-900 mb-1">10+</div>
                     <p class="text-xs text-slate-500 uppercase tracking-wide">Tier-1 Partnerships</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-slate-200/80 shadow-sm">
-                    <div class="text-3xl font-bold text-slate-900 mb-1">GCC & IQ</div>
+                    <div class="text-3xl font-bold text-slate-900 mb-1">UAE & IQ</div>
                     <p class="text-xs text-slate-500 uppercase tracking-wide">Active Market Core</p>
                 </div>
             </div>
@@ -122,35 +153,39 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 01: IT Products -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">01</div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3">Technology Trading</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Seamless export & import handling of high-demand IT hardware, systems, and enterprise accessories centered from our prime trade hubs.</p>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">IT Products</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Comprehensive import, export, and wholesale trading centered in Dubai’s premier free zone hub. Supplying computers, printers, network architecture, storage hardware, and mobile accessories from leading global brands including Apple, HP, Dell, Samsung, Canon, Verbatim, and WD.</p>
                 </div>
+
+                <!-- 02: Office Supplies -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">02</div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3">IT Solutions & Digitalization</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">System integration maps explicitly to operational targets, elevating performance, cross-platform interoperability, and UX.</p>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Office Supplies</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Streamlining corporate procurement with essential workplace consumables that match strict internal standards. Delivered alongside our core IT infrastructure, we provide an integrated, dependable "one-stop-shop" procurement experience for modern offices.</p>
                 </div>
+
+                <!-- 03: Smart Home Appliances -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">03</div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3">AI & Data Automation</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Deployment of highly specialized virtual agents, streamlined process automation, and adaptive cloud data environments.</p>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Smart Home Appliances</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Capitalizing on the global rise of automated residential environments through strategic investments in IoT ecosystems. We source and distribute next-generation smart appliances designed to optimize automated residential layouts and elevate automated living standards.</p>
                 </div>
+
+                <!-- 04: IT Solutions & Digitalization -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">04</div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3">Mobile Apps Development</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Bespoke cross-platform mobile app native structures focused strictly on conversion optimizations and beautiful interaction rules.</p>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">IT Solutions & Digitalization</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Architecting enterprise-grade digital transformations that successfully align corporate operational targets with technical assets. We implement intelligent systems integration, cloud migrations, and robust security protocols to elevate data integrity and workflow performance.</p>
                 </div>
+
+                <!-- 05: Sustainability Solutions -->
                 <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
                     <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">05</div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3">Solar & Sustainability</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">End-to-end setups of state-of-the-art high-efficiency solar panel distribution, array layouts, and eco-conscious tech configurations.</p>
-                </div>
-                <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl hover:shadow-xl transition-all group hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center text-cyan-600 font-bold text-lg mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors">06</div>
-                    <h4 class="text-xl font-bold text-slate-900 mb-3">Managed Systems Plus</h4>
-                    <p class="text-slate-600 text-sm leading-relaxed">Flexible outsourced SLA management keeping hardware upkeep predictable, cost-optimized, and operating seamlessly 24/7.</p>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Sustainability Solutions</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Delivering engineering excellence in renewable energy through bespoke, high-efficiency solar panel configurations and components trading. From system layout blueprinting to final technical commissioning, we deliver highly scalable, green infrastructure assets.</p>
                 </div>
             </div>
         </div>
